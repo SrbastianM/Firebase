@@ -1,5 +1,6 @@
 package com.srbastian.firebase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,39 +11,46 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.srbastian.firebase.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var editText: EditText
-    lateinit var buttonSend: Button
-    lateinit var textView: TextView
+    lateinit var mainBinding: ActivityMainBinding
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private val reference: DatabaseReference = database.reference.child("Users")
-    private val secondReference: DatabaseReference = database.reference
+    val myReference = database.reference.child("MyUsers")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        editText = findViewById(R.id.etName)
-        buttonSend = findViewById(R.id.btnSendData)
-        textView = findViewById(R.id.tvName)
+        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        val view = mainBinding.root
+        setContentView(view)
 
-        //retrieving data from firebase
-        secondReference.addValueEventListener(object : ValueEventListener {
+        mainBinding.fabId.setOnClickListener {
+            val intent = Intent(this, AddUserActivity::class.java)
+            startActivity(intent)
+        }
+        retrieveDataFromDatabase()
+    }
+
+    fun retrieveDataFromDatabase() {
+        myReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val realName : String = snapshot.child("Users").child("Name").value.toString()
-                textView.text = realName
+
+                for (eachUser in snapshot.children) {
+
+                    val users = eachUser.getValue(Users::class.java)
+                    if (users != null) {
+                        println("User ID: ${users.userId}")
+                        println("User ID: ${users.userAge}")
+                        println("User ID: ${users.userEmail}")
+                        println("User ID: ${users.userName}")
+                    }
+                }
+
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
-
-        // Send data to the firebase
-        buttonSend.setOnClickListener {
-            val userName: String = editText.text.toString()
-            reference.child("userName").setValue(userName)
-        }
     }
 }
