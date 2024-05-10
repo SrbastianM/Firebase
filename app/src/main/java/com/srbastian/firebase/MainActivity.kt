@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet.Layout
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchUIUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -33,6 +37,25 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddUserActivity::class.java)
             startActivity(intent)
         }
+        // Delete User drag to left or right
+        ItemTouchHelper(object :
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val id = usersAdapter.getUserId(viewHolder.adapterPosition)
+                myReference.child(id).removeValue()
+
+                Toast.makeText(applicationContext, "User was deleted", Toast.LENGTH_SHORT).show()
+            }
+
+        }).attachToRecyclerView(mainBinding.rvMainActivity)
         retrieveDataFromDatabase()
     }
 
@@ -50,7 +73,8 @@ class MainActivity : AppCompatActivity() {
                     }
                     usersAdapter = UsersAdapter(this@MainActivity, userList)
 
-                    mainBinding.rvMainActivity.layoutManager = LinearLayoutManager(this@MainActivity)
+                    mainBinding.rvMainActivity.layoutManager =
+                        LinearLayoutManager(this@MainActivity)
                     mainBinding.rvMainActivity.adapter = usersAdapter
                 }
 

@@ -33,6 +33,9 @@ class UsersAdapter(
             intent.putExtra("userEmail", userList[position].userEmail)
             context.startActivity(intent)
         }
+    }
 
+    fun getUserId(position: Int): String {
+        return userList[position].userId
     }
 }
