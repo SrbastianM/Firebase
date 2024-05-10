@@ -10,13 +10,10 @@ import com.srbastian.firebase.databinding.UsersItemBinding
 class UsersAdapter(
     var context: Context,
     var userList: ArrayList<Users>
-) : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
-    inner class UsersViewHolder(val adapterBinding: UsersItemBinding) :
-        RecyclerView.ViewHolder(adapterBinding.root) {}
-
+) : RecyclerView.Adapter<UsersViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
-        val binding = UsersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return UsersViewHolder(binding)
+        val view = UsersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return UsersViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -24,8 +21,7 @@ class UsersAdapter(
     }
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
-        holder.adapterBinding.tvName.text = userList[position].userName
-        holder.adapterBinding.tvAge.text = userList[position].userAge.toString()
-        holder.adapterBinding.tvEmail.text = userList[position].userEmail
+        val item = userList[position]
+        holder.render(item)
     }
 }

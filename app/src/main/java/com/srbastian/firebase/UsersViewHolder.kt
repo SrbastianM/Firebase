@@ -1,0 +1,18 @@
+package com.srbastian.firebase
+
+
+import androidx.recyclerview.widget.RecyclerView
+import com.srbastian.firebase.databinding.UsersItemBinding
+
+class UsersViewHolder(binding: UsersItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    val name = binding.tvName
+    val age = binding.tvAge
+    val email = binding.tvEmail
+
+    fun render(usersModel: Users){
+        name.text = usersModel.userName
+        age.text = usersModel.userAge.toString()
+        name.text = usersModel.userName
+    }
+
+}
