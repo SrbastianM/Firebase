@@ -1,4 +1,4 @@
-package com.srbastian.firebase
+package com.srbastian.firebase.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.srbastian.firebase.databinding.ActivityAddUserBinding
+import com.srbastian.firebase.model.Users
 
 class AddUserActivity : AppCompatActivity() {
     lateinit var addUserBinding: ActivityAddUserBinding

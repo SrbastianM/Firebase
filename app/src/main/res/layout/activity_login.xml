@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".Login">
+    android:orientation="vertical"
+    tools:context=".view.Login">
 
     <TextView
         android:id="@+id/textView"
@@ -39,7 +39,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etEmailAddress"
+        android:id="@+id/tiEmail"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -52,7 +52,7 @@
         tools:layout_editor_absoluteY="215dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/etEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -61,7 +61,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordLayout"
+        android:id="@+id/tiPassword"
         android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -74,11 +74,11 @@
         tools:layout_editor_absoluteY="215dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:textColorHint="@color/light_gray" />
     </com.google.android.material.textfield.TextInputLayout>
 

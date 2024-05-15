@@ -1,4 +1,4 @@
-package com.srbastian.firebase
+package com.srbastian.firebase.model
 
 data class Users(
     val userId: String = "",

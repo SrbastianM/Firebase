@@ -1,4 +1,4 @@
-package com.srbastian.firebase
+package com.srbastian.firebase.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.srbastian.firebase.databinding.UsersItemBinding
+import com.srbastian.firebase.model.Users
+import com.srbastian.firebase.model.UsersViewHolder
+import com.srbastian.firebase.view.UpdateUser
 
 class UsersAdapter(
     var context: Context,

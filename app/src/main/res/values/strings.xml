@@ -4,6 +4,7 @@
     <string name="email">Email</string>
     <string name="email_hint">Enter your Email</string>
     <string name="login_subtitle">Login to continue using the app</string>
+    <string name="register_subtitle">Put your Email and password</string>
     <string name="login_button">Login</string>
     <string name="register_button">Register</string>
     <string name="password">Password</string>

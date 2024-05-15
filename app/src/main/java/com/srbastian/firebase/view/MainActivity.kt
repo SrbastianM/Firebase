@@ -1,4 +1,4 @@
-package com.srbastian.firebase
+package com.srbastian.firebase.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.srbastian.firebase.adapter.UsersAdapter
 import com.srbastian.firebase.databinding.ActivityMainBinding
+import com.srbastian.firebase.model.Users
 
 class MainActivity : AppCompatActivity() {
     lateinit var mainBinding: ActivityMainBinding

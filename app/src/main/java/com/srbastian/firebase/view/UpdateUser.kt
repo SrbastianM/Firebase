@@ -1,4 +1,4 @@
-package com.srbastian.firebase
+package com.srbastian.firebase.view
 
 import android.os.Bundle
 import android.widget.Toast

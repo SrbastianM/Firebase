@@ -1,4 +1,4 @@
-package com.srbastian.firebase
+package com.srbastian.firebase.model
 
 import androidx.recyclerview.widget.RecyclerView
 import com.srbastian.firebase.databinding.UsersItemBinding
