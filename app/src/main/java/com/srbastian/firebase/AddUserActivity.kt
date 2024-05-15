@@ -1,8 +1,8 @@
 package com.srbastian.firebase
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.srbastian.firebase.databinding.ActivityAddUserBinding
@@ -12,6 +12,7 @@ class AddUserActivity : AppCompatActivity() {
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val myReference: DatabaseReference = database.reference.child("MyUsers")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addUserBinding = ActivityAddUserBinding.inflate(layoutInflater)
@@ -38,7 +39,7 @@ class AddUserActivity : AppCompatActivity() {
                 Toast.makeText(
                     applicationContext,
                     "The user has been added to the database",
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_SHORT,
                 ).show()
 
                 finish()
@@ -46,7 +47,7 @@ class AddUserActivity : AppCompatActivity() {
                 Toast.makeText(
                     applicationContext,
                     task.exception.toString(),
-                    Toast.LENGTH_SHORT
+                    Toast.LENGTH_SHORT,
                 ).show()
             }
         }

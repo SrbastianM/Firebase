@@ -1,8 +1,8 @@
 package com.srbastian.firebase
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.srbastian.firebase.databinding.ActivityUpdateUserBinding
@@ -12,6 +12,7 @@ class UpdateUser : AppCompatActivity() {
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     val myReference: DatabaseReference = database.reference.child("MyUsers")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         updateUserBinding = ActivityUpdateUserBinding.inflate(layoutInflater)

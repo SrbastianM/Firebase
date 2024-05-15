@@ -1,6 +1,5 @@
 package com.srbastian.firebase
 
-
 import androidx.recyclerview.widget.RecyclerView
 import com.srbastian.firebase.databinding.UsersItemBinding
 
@@ -10,10 +9,9 @@ class UsersViewHolder(binding: UsersItemBinding) : RecyclerView.ViewHolder(bindi
     val email = binding.tvEmail
     val layout = binding.linearLayout
 
-    fun render(usersModel: Users){
+    fun render(usersModel: Users) {
         name.text = usersModel.userName
         age.text = usersModel.userAge.toString()
         email.text = usersModel.userEmail
     }
-
 }
