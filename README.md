@@ -1,5 +1,5 @@
 #Firebase
---= 
+---
 Firebase is an aplication where I practice the use of realtime database, auth and notifications using the cloud service.
 ![image](https://github.com/SrbastianM/Firebase/assets/61092885/20db0b75-b1df-42b2-b7e8-8656ee118ad6)
 ![image](https://github.com/SrbastianM/Firebase/assets/61092885/f9aa7533-ad66-4a2e-b8a5-237da00a0bad)
