@@ -1,4 +1,4 @@
-#Firebase
+# Firebase
 ---
 Firebase is an aplication where I practice the use of realtime database, auth and notifications using the cloud service.
 ---
