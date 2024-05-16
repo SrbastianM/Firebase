@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.srbastian.firebase.databinding.ActivityLoginBinding
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     lateinit var loginBinding: ActivityLoginBinding
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -29,7 +29,7 @@ class Login : AppCompatActivity() {
             }
         }
         loginBinding.btnRegister.setOnClickListener {
-            val intent = Intent(this@Login, RegisterActivity::class.java)
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
     }
@@ -43,7 +43,7 @@ class Login : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(applicationContext, "Login is successfully", Toast.LENGTH_SHORT)
                         .show()
-                    val intent = Intent(this@Login, MainActivity::class.java)
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
@@ -54,5 +54,15 @@ class Login : AppCompatActivity() {
                     ).show()
                 }
             }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val user = auth.currentUser
+        if (user != null) {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

@@ -16,6 +16,8 @@ class RegisterActivity : AppCompatActivity() {
         val view = registerBinding.root
         setContentView(view)
 
+        supportActionBar?.title = "Register"
+
         registerBinding.btnRegister.setOnClickListener {
             val email = registerBinding.etEmailRegister.text.toString()
             val password = registerBinding.etPasswordRegister.text.toString()

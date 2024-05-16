@@ -17,10 +17,11 @@
         <activity
             android:name=".view.RegisterActivity"
             android:exported="false"
-            android:parentActivityName=".view.Login"/>
+            android:parentActivityName=".view.LoginActivity" />
         <activity
-            android:name=".view.Login"
-            android:exported="true">
+            android:name=".view.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Base.Theme.Firebase.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,10 +30,12 @@
         </activity>
         <activity
             android:name=".view.UpdateUser"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".view.MainActivity"/>
         <activity
             android:name=".view.AddUserActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".view.MainActivity" />
         <activity
             android:name=".view.MainActivity"
             android:exported="true"></activity>
