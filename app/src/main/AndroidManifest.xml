@@ -15,6 +15,11 @@
         android:theme="@style/Theme.Firebase"
         tools:targetApi="31">
         <activity
+            android:name=".view.ForgetActivity"
+            android:exported="true"
+            android:parentActivityName=".view.LoginActivity"
+            android:theme="@style/Base.Theme.Firebase"/>
+        <activity
             android:name=".view.RegisterActivity"
             android:exported="false"
             android:parentActivityName=".view.LoginActivity" />
@@ -31,14 +36,14 @@
         <activity
             android:name=".view.UpdateUser"
             android:exported="false"
-            android:parentActivityName=".view.MainActivity"/>
+            android:parentActivityName=".view.MainActivity" />
         <activity
             android:name=".view.AddUserActivity"
             android:exported="false"
             android:parentActivityName=".view.MainActivity" />
         <activity
             android:name=".view.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

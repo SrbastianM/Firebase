@@ -8,6 +8,9 @@
     <string name="login_button">Login</string>
     <string name="register_button">Register</string>
     <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_subtitle">Put your email address to reset your password</string>
+    <string name="forgot_button">Reset</string>
     <string name="password_hint">Enter your Email</string>
 
 </resources>

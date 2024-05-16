@@ -32,6 +32,10 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
+        loginBinding.tvForgotPassword.setOnClickListener {
+            val intent = Intent(this, ForgetActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loginWithFirebase(
