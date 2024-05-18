@@ -21,7 +21,12 @@ class RegisterActivity : AppCompatActivity() {
         registerBinding.btnRegister.setOnClickListener {
             val email = registerBinding.etEmailRegister.text.toString()
             val password = registerBinding.etPasswordRegister.text.toString()
-            registerWithFirebase(email, password)
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                registerWithFirebase(email, password)
+            } else {
+                Toast.makeText(applicationContext, "Please field the fields", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 
@@ -35,7 +40,11 @@ class RegisterActivity : AppCompatActivity() {
                     .show()
                 finish()
             } else {
-                Toast.makeText(applicationContext, task.exception?.toString(), Toast.LENGTH_SHORT)
+                Toast.makeText(
+                    applicationContext,
+                    task.exception?.message.toString(),
+                    Toast.LENGTH_SHORT,
+                )
                     .show()
             }
         }

@@ -20,21 +20,30 @@ class ForgetActivity : AppCompatActivity() {
 
         forgetBinding.btnReset.setOnClickListener {
             val email = forgetBinding.etForgotEmail.text.toString()
-            auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(
-                        applicationContext,
-                        "We sent a password reset email to your mail address",
-                        Toast.LENGTH_LONG,
-                    ).show()
-                    finish()
-                } else {
-                    Toast.makeText(
-                        applicationContext,
-                        task.exception?.toString(),
-                        Toast.LENGTH_LONG,
-                    ).show()
+
+            if (email.isNotEmpty()) {
+                auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            applicationContext,
+                            "We sent a password reset email to your mail address",
+                            Toast.LENGTH_LONG,
+                        ).show()
+                        finish()
+                    } else {
+                        Toast.makeText(
+                            applicationContext,
+                            task.exception?.toString(),
+                            Toast.LENGTH_LONG,
+                        ).show()
+                    }
                 }
+            } else {
+                Toast.makeText(
+                    applicationContext,
+                    "Please field the fields",
+                    Toast.LENGTH_LONG,
+                ).show()
             }
         }
     }
