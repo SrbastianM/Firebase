@@ -10,7 +10,7 @@ import com.srbastian.firebase.databinding.ActivityAddUserBinding
 import com.srbastian.firebase.model.Users
 
 class AddUserActivity : AppCompatActivity() {
-    lateinit var addUserBinding: ActivityAddUserBinding
+    private lateinit var addUserBinding: ActivityAddUserBinding
 
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val myReference: DatabaseReference = database.reference.child("MyUsers")
